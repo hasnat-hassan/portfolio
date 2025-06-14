@@ -1,0 +1,7 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a1a2e"/>
+  <text x="400" y="300" font-family="Arial" font-size="60" text-anchor="middle" fill="#3b82f6">CMS Clone</text>
+  <rect x="200" y="350" width="400" height="40" rx="5" fill="#10b981"/>
+  <rect x="200" y="400" width="300" height="40" rx="5" fill="#3b82f6"/>
+  <rect x="200" y="450" width="350" height="40" rx="5" fill="#8b5cf6"/>
+</svg>
