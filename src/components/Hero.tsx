@@ -49,7 +49,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
               <Link 
                 href="#contact" 
-                className="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+                className="bg-card hover:bg-card/70 text-foreground font-medium py-3 px-6 rounded-lg transition-colors"
               >
                 Get in Touch
               </Link>

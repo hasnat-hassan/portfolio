@@ -17,15 +17,27 @@ export default function ThemeToggle() {
     >
       <motion.div
         initial={false}
-        animate={{ rotate: theme === 'dark' ? 0 : 180 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         className="relative w-5 h-5 flex items-center justify-center"
       >
-        {theme === 'dark' ? (
-          <FiSun className="absolute text-yellow-400" />
-        ) : (
-          <FiMoon className="absolute text-blue-500" />
-        )}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: theme === 'dark' ? 1 : 0, scale: theme === 'dark' ? 1 : 0.5 }}
+          transition={{ duration: 0.2 }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <FiSun className="text-[#22d3ee]" />
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: theme === 'dark' ? 0 : 1, scale: theme === 'dark' ? 0.5 : 1 }}
+          transition={{ duration: 0.2 }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <FiMoon className="text-[#0ea5e9]" />
+        </motion.div>
       </motion.div>
     </motion.button>
   );
