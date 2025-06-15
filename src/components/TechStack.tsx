@@ -132,7 +132,7 @@ export default function TechStack() {
           </motion.div>
 
           <div className="space-y-12">
-            {techCategories.map((category, index) => (
+            {techCategories.map((category) => (
               <motion.div key={category.name} variants={itemVariants}>
                 <h3 className="text-xl font-semibold mb-6 border-l-4 border-primary pl-3">
                   {category.name}

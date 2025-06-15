@@ -84,7 +84,7 @@ export default function Contact() {
                 <h3 className="text-xl font-bold mb-6">Contact Information</h3>
                 
                 <div className="space-y-6">
-                  {socialLinks.map((link, index) => (
+                  {socialLinks.map((link) => (
                     <motion.div 
                       key={link.name}
                       className="flex items-start gap-4"
@@ -120,12 +120,12 @@ export default function Contact() {
                   whileHover={{ scale: 1.02 }}
                 >
                   <h4 className="font-medium mb-2">Looking for a dedicated developer?</h4>
-                  <p className="text-foreground/70 mb-4">I'm open to freelance opportunities and full-time positions.</p>
+                  <p className="text-foreground/70 mb-4">I&apos;m open to freelance opportunities and full-time positions.</p>
                   <Link 
                     href="mailto:hasnathassan397@gmail.com?subject=Job%20Opportunity" 
                     className="text-primary hover:underline inline-flex items-center gap-1"
                   >
-                    Let's discuss <span aria-hidden="true">→</span>
+                    Let&apos;s discuss <span aria-hidden="true">→</span>
                   </Link>
                 </motion.div>
               </div>

@@ -36,7 +36,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Hi, I'm <span className="text-gradient">Hasnat Hassan</span>
+              Hi, I&apos;m <span className="text-gradient">Hasnat Hassan</span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-foreground/80 mb-6">
               Frontend Web Developer
