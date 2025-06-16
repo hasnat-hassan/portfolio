@@ -10,6 +10,7 @@ import {
   SiTypescript, SiNextdotjs, SiTailwindcss, SiSupabase, SiPrisma, SiMongodb, 
   SiMysql, SiVercel, SiPostman, SiStrapi, SiOpenai, SiCurseforge
 } from 'react-icons/si';
+import { useTheme } from './ThemeProvider';
 
 interface TechCategory {
   name: string;
@@ -25,6 +26,8 @@ export default function TechStack() {
     threshold: 0.1,
   });
 
+  const { theme } = useTheme();
+
   const techCategories: TechCategory[] = [
     {
       name: 'Languages',
@@ -39,7 +42,7 @@ export default function TechStack() {
       name: 'Frameworks',
       items: [
         { name: 'React.js', icon: <FaReact className="text-[#61DAFB]" /> },
-        { name: 'Next.js', icon: <SiNextdotjs className="text-white" /> },
+        { name: 'Next.js', icon: <SiNextdotjs className={theme === 'light' ? 'text-black' : 'text-white'} /> },
       ],
     },
     {
@@ -53,7 +56,7 @@ export default function TechStack() {
       name: 'Backend/DB',
       items: [
         { name: 'Supabase', icon: <SiSupabase className="text-[#3ECF8E]" /> },
-        { name: 'Prisma ORM', icon: <SiPrisma className="text-white" /> },
+        { name: 'Prisma ORM', icon: <SiPrisma className={theme === 'light' ? 'text-black' : 'text-white'} /> },
         { name: 'Drizzle ORM', icon: <SiMysql className="text-[#4479A1]" /> }, // Using MySQL icon as placeholder
         { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" /> },
         { name: 'MySQL', icon: <SiMysql className="text-[#4479A1]" /> },
@@ -63,14 +66,14 @@ export default function TechStack() {
       name: 'Version Control',
       items: [
         { name: 'Git', icon: <FaGitAlt className="text-[#F05032]" /> },
-        { name: 'GitHub', icon: <FaGithub className="text-white" /> },
+        { name: 'GitHub', icon: <FaGithub className={theme === 'light' ? 'text-black' : 'text-white'} /> },
       ],
     },
     {
       name: 'Tools',
       items: [
         { name: 'Figma', icon: <FaFigma className="text-[#F24E1E]" /> },
-        { name: 'Vercel', icon: <SiVercel className="text-white" /> },
+        { name: 'Vercel', icon: <SiVercel className={theme === 'light' ? 'text-black' : 'text-white'} /> },
         { name: 'Postman', icon: <SiPostman className="text-[#FF6C37]" /> },
       ],
     },
