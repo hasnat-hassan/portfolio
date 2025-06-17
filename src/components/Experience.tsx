@@ -135,7 +135,7 @@ export default function Experience() {
 
                   {/* Content */}
                   <div className="md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right">
-                    <div className="bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <div className="flex flex-col items-start bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
                       <h3 className="text-xl font-bold mb-1">{experience.title}</h3>
                       <h4 className="text-lg text-primary mb-3">{experience.company}</h4>
                       <div className="flex items-center mb-4 md:justify-end">
@@ -164,7 +164,7 @@ export default function Experience() {
 
                   {/* Content */}
                   <div className="md:w-1/2 pl-12 md:pl-12 md:pr-0">
-                    <div className="bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+                    <div className="flex flex-col items-center bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
                       <h4 className="text-lg font-semibold mb-4">Responsibilities</h4>
                       <ul className="space-y-3">
                         {experience.responsibilities.map((item, i) => (
