@@ -62,6 +62,16 @@ export default function Navbar() {
                 )}
               </Link>
             ))}
+            {/* Resume Button */}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative font-medium hover:text-primary transition-colors text-foreground px-4 py-2 rounded bg-primary/90 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              aria-label="Open Resume PDF in new tab"
+            >
+              Resume
+            </a>
           </nav>
           <ThemeToggle />
         </div>
@@ -109,6 +119,17 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+            {/* Resume Button for Mobile */}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg font-medium hover:text-primary transition-colors text-foreground px-4 py-2 rounded bg-primary/90 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              aria-label="Open Resume PDF in new tab"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Resume
+            </a>
           </div>
         </motion.nav>
       )}
