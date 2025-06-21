@@ -127,17 +127,7 @@ export default function Experience() {
                   variants={itemVariants}
                   className="relative flex md:items-center"
                 >
-                  {/* Timeline dot/icon (desktop only) */}
-                  <div className="hidden md:flex flex-col items-center z-10">
-                    <span className="w-5 h-5 rounded-full bg-primary flex items-center justify-center shadow-lg border-4 border-background">
-                      <FaRocket className="text-black dark:text-white text-xs" />
-                    </span>
-                    {/* Connector line below dot except for last item */}
-                    {index < experiences.length - 1 && (
-                      <span className="flex-1 w-1 bg-border"></span>
-                    )}
-                  </div>
-
+  
                   {/* Card */}
                   <div className="ml-0 md:ml-12 flex-1">
                     <div className="bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
