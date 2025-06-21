@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaBriefcase, FaCalendarAlt, FaCode, FaFigma, FaDatabase, FaLock, FaUsers, FaRocket } from 'react-icons/fa';
+import { FaCalendarAlt, FaCode, FaFigma, FaDatabase, FaLock, FaUsers, FaRocket } from 'react-icons/fa';
 
 interface ExperienceItem {
   title: string;
@@ -22,56 +22,56 @@ export default function Experience() {
 
   const experiences: ExperienceItem[] = [
     {
-      title: 'Junior Web Developer',
+      title: 'Intern',
       company: 'Revnix',
-      period: 'Feb 2024 – Present',
+      period: 'Feb 2024 - july 2024',
       responsibilities: [
-        { 
-          text: 'Converted Figma designs to production-ready UI with React/Next.js + Tailwind',
-          icon: <FaFigma />
-        },
-        { 
-          text: 'Built dynamic pages (auth, cart, profile, shop) with Supabase backend',
+        {
+          text: 'Completed project-based learning from Udemy',
           icon: <FaCode />
         },
-        { 
-          text: 'Integrated forms, password flows, and secure user data handling',
-          icon: <FaLock />
+        {
+          text: 'Built various UI projects using React, CSS, and APIs',
+          icon: <FaCode />
         },
-        { 
-          text: 'Used Prisma & Drizzle ORM for complex DB logic',
-          icon: <FaDatabase />
+        {
+          text: 'Gained confidence in converting Figma designs to real apps',
+          icon: <FaFigma />
         },
-        { 
-          text: 'Contributed to real client projects — all live and deployed',
-          icon: <FaUsers />
-        },
-        { 
-          text: 'Boosted productivity with Cursor IDE, ChatGPT, Claude, and DeepSeek',
-          icon: <FaRocket />
+        {
+          text: 'Learned Git workflows and modern dev environments',
+          icon: <FaCode />
         },
       ],
     },
     {
-      title: 'Intern',
+      title: 'Junior Web Developer',
       company: 'Revnix',
-      period: 'Dec 2023 – Feb 2024',
+      period: 'Feb 2024 – Present',
       responsibilities: [
-        { 
-          text: 'Completed project-based learning from Udemy',
-          icon: <FaCode />
-        },
-        { 
-          text: 'Built various UI projects using React, CSS, and APIs',
-          icon: <FaCode />
-        },
-        { 
-          text: 'Gained confidence in converting Figma designs to real apps',
+        {
+          text: 'Converted Figma designs to production-ready UI with React/Next.js + Tailwind',
           icon: <FaFigma />
         },
-        { 
-          text: 'Learned Git workflows and modern dev environments',
+        {
+          text: 'Built dynamic pages (auth, cart, profile, shop) with Supabase backend',
           icon: <FaCode />
+        },
+        {
+          text: 'Integrated forms, password flows, and secure user data handling',
+          icon: <FaLock />
+        },
+        {
+          text: 'Used Prisma & Drizzle ORM for complex DB logic',
+          icon: <FaDatabase />
+        },
+        {
+          text: 'Contributed to real client projects — all live and deployed',
+          icon: <FaUsers />
+        },
+        {
+          text: 'Boosted productivity with Cursor IDE, ChatGPT, Claude, and DeepSeek',
+          icon: <FaRocket />
         },
       ],
     },
@@ -117,55 +117,41 @@ export default function Experience() {
           </motion.div>
 
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border transform md:translate-x-px"></div>
+            {/* Timeline vertical line (desktop only) */}
+            <div className="hidden md:block absolute left-6 top-0 bottom-0 w-1 bg-border rounded-full"></div>
 
-            {/* Experience items */}
             <div className="space-y-12">
               {experiences.map((experience, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   variants={itemVariants}
-                  className={`relative flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                  className="relative flex md:items-center"
                 >
-                  {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 w-8 h-8 bg-primary rounded-full transform -translate-x-1/2 flex items-center justify-center z-10">
-                    <FaBriefcase className="text-white" />
+                  {/* Timeline dot/icon (desktop only) */}
+                  <div className="hidden md:flex flex-col items-center z-10">
+                    <span className="w-5 h-5 rounded-full bg-primary flex items-center justify-center shadow-lg border-4 border-background">
+                      <FaRocket className="text-black dark:text-white text-xs" />
+                    </span>
+                    {/* Connector line below dot except for last item */}
+                    {index < experiences.length - 1 && (
+                      <span className="flex-1 w-1 bg-border"></span>
+                    )}
                   </div>
 
-                  {/* Content */}
-                  <div className="md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right">
-                    <div className="flex flex-col items-start bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
-                      <h3 className="text-xl font-bold mb-1">{experience.title}</h3>
-                      <h4 className="text-lg text-primary mb-3">{experience.company}</h4>
-                      <div className="flex items-center mb-4 md:justify-end">
-                        <FaCalendarAlt className="text-foreground/60 mr-2" />
-                        <span className="text-foreground/60">{experience.period}</span>
+                  {/* Card */}
+                  <div className="ml-0 md:ml-12 flex-1">
+                    <div className="bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                        <div>
+                          <h3 className="text-xl font-bold">{experience.title}</h3>
+                          <h4 className="text-lg text-primary">{experience.company}</h4>
+                        </div>
+                        <div className="flex items-center text-foreground/60 mt-2 md:mt-0">
+                          <FaCalendarAlt className="mr-2" />
+                          <span>{experience.period}</span>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Empty space for alignment */}
-                  <div className="md:w-1/2"></div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Responsibilities */}
-            <div className="space-y-12 mt-8">
-              {experiences.map((experience, index) => (
-                <motion.div 
-                  key={`resp-${index}`}
-                  variants={itemVariants}
-                  className={`relative flex flex-col md:flex-row ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
-                >
-                  {/* Empty space for alignment */}
-                  <div className="md:w-1/2"></div>
-
-                  {/* Content */}
-                  <div className="md:w-1/2 pl-12 md:pl-12 md:pr-0">
-                    <div className="flex flex-col items-center bg-card rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
-                      <h4 className="text-lg font-semibold mb-4">Responsibilities</h4>
+                      <h4 className="text-lg font-semibold mb-2 mt-4">Responsibilities</h4>
                       <ul className="space-y-3">
                         {experience.responsibilities.map((item, i) => (
                           <li key={i} className="flex items-start">
