@@ -2,21 +2,10 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Link from 'next/link';
-import Image from 'next/image';
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  category: string;
-  github: string;
-  liveLink: string;
-}
+import { useInView } from 'react-intersection-observer';
+import ProjectCard from './ProjectCard';
+import { projects } from '../data/projectsData';
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -24,60 +13,7 @@ export default function Projects() {
     threshold: 0.1,
   });
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: 'WordPress-like CMS Clone',
-      description: 'A custom CMS with dynamic form handling, role-based access control, and integrated shop/cart functionality.',
-      image: '/projects/cms.svg',
-      tags: ['React', 'Next.js', 'Tailwind CSS', 'Supabase', 'Prisma'],
-      category: 'Full Stack',
-      github: 'https://github.com/hasnat-hassan',
-      liveLink: 'https://cms-clone.example.com',
-    },
-    {
-      id: 2,
-      title: 'E-Commerce Site',
-      description: 'Feature-rich online store with product filters, cart logic, and secure authentication.',
-      image: '/projects/ecommerce.svg',
-      tags: ['React', 'Next.js', 'Tailwind CSS', 'Supabase', 'Stripe'],
-      category: 'Full Stack',
-      github: 'https://github.com/hasnat-hassan',
-      liveLink: 'https://ecommerce.example.com',
-    },
-    {
-      id: 3,
-      title: 'Agency Portfolio Site',
-      description: 'Modern, animated website built for a real client with smooth transitions and responsive design.',
-      image: '/projects/agency.svg',
-      tags: ['React', 'GSAP', 'Tailwind CSS', 'Framer Motion'],
-      category: 'Frontend',
-      github: 'https://github.com/hasnat-hassan',
-      liveLink: 'https://agency.example.com',
-    },
-    {
-      id: 4,
-      title: 'Figma to HTML Website',
-      description: 'Pixel-perfect UI implementation from Figma design, fully responsive on all devices.',
-      image: '/projects/figma.svg',
-      tags: ['HTML', 'CSS', 'JavaScript', 'Responsive'],
-      category: 'Frontend',
-      github: 'https://github.com/hasnat-hassan',
-      liveLink: 'https://figma-conversion.example.com',
-    },
-    {
-      id: 5,
-      title: 'Internship Projects',
-      description: 'Collection of mini applications built during Udemy learning path as part of internship.',
-      image: '/projects/internship.svg',
-      tags: ['React', 'CSS', 'APIs', 'JavaScript'],
-      category: 'Learning',
-      github: 'https://github.com/hasnat-hassan',
-      liveLink: 'https://internship.example.com',
-    },
-  ];
-
-  const categories = ['All', 'Full Stack', 'Frontend', 'Learning'];
+  const categories = ['All', 'Frontend', 'Dashboard'];
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredProjects = activeCategory === 'All' 
@@ -105,6 +41,56 @@ export default function Projects() {
     },
   };
 
+  const gridVariants = {
+    hidden: { 
+      opacity: 0,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        staggerChildren: 0.1,
+        when: "beforeChildren"
+      }
+    },
+    exit: { 
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.3,
+        when: "afterChildren",
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20,
+      scale: 0.9
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.4
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      y: -20,
+      scale: 0.9,
+      transition: {
+        duration: 0.2
+      }
+    }
+  };
+
   return (
     <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -129,7 +115,11 @@ export default function Projects() {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm md:text-base transition-colors ${activeCategory === category ? 'bg-primary text-white' : 'bg-card hover:bg-card/70 text-foreground/70'}`}
+                  className={`px-4 py-2 rounded-full text-sm md:text-base transition-all duration-300 ${
+                    activeCategory === category 
+                      ? 'bg-primary text-white shadow-lg transform scale-105' 
+                      : 'bg-card hover:bg-card/70 text-foreground/70 hover:scale-105'
+                  }`}
                 >
                   {category}
                 </button>
@@ -137,69 +127,28 @@ export default function Projects() {
             </div>
           </motion.div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              {filteredProjects.map((project) => (
-                <motion.div
-                  key={project.id}
-                  variants={itemVariants}
-                  className="bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                >
-                  <div className="h-48 bg-gray-800 relative overflow-hidden">
-                    <Image 
-                      src={project.image} 
-                      alt={project.title}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-foreground/70 mb-4">{project.description}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag, index) => (
-                        <span 
-                          key={index} 
-                          className="text-xs bg-background px-2 py-1 rounded-full text-foreground/60"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div className="flex justify-between">
-                      <Link 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-foreground/70 hover:text-primary transition-colors"
-                      >
-                        <FaGithub /> <span>Code</span>
-                      </Link>
-                      <Link 
-                        href={project.liveLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-foreground/70 hover:text-primary transition-colors"
-                      >
-                        <span>Live Demo</span> <FaExternalLinkAlt />
-                      </Link>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+          <div className="relative min-h-[400px]">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={activeCategory}
+                variants={gridVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 absolute inset-0"
+              >
+                {filteredProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    variants={cardVariants}
+                    layout
+                  >
+                    <ProjectCard project={project} itemVariants={{}} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
           
           <motion.div variants={itemVariants} className="text-center mt-12">
             <Link 
