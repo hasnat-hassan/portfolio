@@ -47,6 +47,94 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    title: 'WorldWise',
+    tagline: 'Interactive world map for tracking your travel adventures',
+    description: 'A modern and elegant travel tracker built with React, Vite, and Leaflet. WorldWise allows you to visually manage your travel history by adding cities directly on an interactive world map, leaving notes, and organizing your journeys like a pro.',
+    image: '/projects/worldwise.png',
+    techIcons: [
+      { name: 'React.js', icon: 'FaReact' },
+      { name: 'JavaScript', icon: 'FaJs' },
+      { name: 'CSS3', icon: 'FaCss3Alt' }
+    ],
+    category: 'Frontend',
+    slug: 'worldwise-travel-tracker',
+    screenshots: ['/projects/worldwise.png', '/projects/worldwise2.png'],
+    features: [
+      'Interactive world map with click-to-add cities',
+      'City management with notes and date tracking',
+      'Geolocation integration for current location',
+      'User authentication with protected routes',
+      'Wikipedia integration for city information'
+    ]
+  },
+  {
+    id: 4,
+    title: 'Fast React Pizza',
+    tagline: 'Modern pizza ordering system with cart and location services',
+    description: 'A comprehensive pizza ordering application built with React, Redux Toolkit, and Tailwind CSS. Features dynamic menu loading, shopping cart management, geolocation services, and order tracking for a complete restaurant experience.',
+    image: '/projects/pizza1.png',
+    techIcons: [
+      { name: 'React.js', icon: 'FaReact' },
+      { name: 'JavaScript', icon: 'FaJs' },
+      { name: 'Tailwind CSS', icon: 'SiTailwindcss' }
+    ],
+    category: 'Frontend',
+    slug: 'fast-react-pizza',
+    screenshots: ['/projects/pizza1.png', '/projects/pizza2.png', '/projects/pizza3.png', '/projects/pizza4.png', '/projects/pizza5.png'],
+    features: [
+      'Dynamic pizza menu loaded via external API',
+      'Shopping cart with real-time price updates',
+      'GPS-based address auto-fill with geolocation',
+      'Order tracking with live ETA updates',
+      'Priority ordering for faster delivery'
+    ]
+  },
+  {
+    id: 5,
+    title: 'The Wild Oasis',
+    tagline: 'Comprehensive hotel management system with analytics',
+    description: 'A modern, full-featured hotel management system built with React and Supabase. Provides complete hotel operations management including cabin bookings, guest check-in/check-out processes, business analytics, and user authentication.',
+    image: '/projects/wildoasis1.png',
+    techIcons: [
+      { name: 'React.js', icon: 'FaReact' },
+      { name: 'JavaScript', icon: 'FaJs' },
+      { name: 'Supabase', icon: 'SiSupabase' }
+    ],
+    category: 'Dashboard',
+    slug: 'wild-oasis-hotel',
+    screenshots: ['/projects/wildoasis1.png','/projects/wildoasis3.png', '/projects/wildoasis4.png'],
+    features: [
+      'Complete cabin management with image uploads',
+      'Booking system with guest check-in/check-out',
+      'Business dashboard with sales analytics',
+      'User authentication and profile management',
+      'Real-time occupancy and revenue tracking'
+    ]
+  },
+  {
+    id: 6,
+    title: 'The Atomic Blog',
+    tagline: 'Modern React blog with performance optimizations',
+    description: 'A performant React blog application showcasing advanced patterns like Context API, React.memo, and state management. Features real-time search, dark mode toggle, and a post archive of over 10,000 entries with optimal performance.',
+    image: '/projects/blog2.png',
+    techIcons: [
+      { name: 'React.js', icon: 'FaReact' },
+      { name: 'JavaScript', icon: 'FaJs' },
+      { name: 'CSS3', icon: 'FaCss3Alt' }
+    ],
+    category: 'Frontend',
+    slug: 'atomic-blog',
+    screenshots: ['/projects/blog2.png', '/projects/blog.png'],
+    features: [
+      'Real-time search through 10,000+ posts',
+      'Performance optimizations with React.memo and useMemo',
+      'Dark/light mode toggle with smooth transitions',
+      'Post creation and management system',
+      'Fake data generation using Faker.js'
+    ]
+  },
+  {
+    id: 7,
     title: 'Smart Packing List',
     tagline: 'React app for organized travel planning with real-time stats',
     description: 'A practical React application that helps users plan their trips by managing packing lists. Features include adding items with quantities, marking items as packed, sorting by different criteria, and viewing real-time packing statistics.',
@@ -65,73 +153,6 @@ export const projects: Project[] = [
       'Sort items by different criteria',
       'Real-time packing statistics',
       'Clean and intuitive interface'
-    ]
-  },
-  {
-    id: 4,
-    title: 'Fast React Pizza',
-    tagline: 'Modern pizza ordering system with real-time order tracking',
-    description: 'A comprehensive pizza ordering application built with React and modern web technologies. Features include menu browsing, cart management, order customization, and real-time order tracking for a complete restaurant experience.',
-    image: '/projects/pizza1.png',
-    techIcons: [
-      { name: 'React.js', icon: 'FaReact' },
-      { name: 'JavaScript', icon: 'FaJs' },
-      { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
-      { name: 'CSS3', icon: 'FaCss3Alt' }
-    ],
-    category: 'Frontend',
-    slug: 'fast-react-pizza',
-    screenshots: ['/projects/pizza1.png', '/projects/pizza2.png', '/projects/pizza3.png', '/projects/pizza4.png', '/projects/pizza5.png'],
-    features: [
-      'Interactive pizza menu with customization',
-      'Shopping cart with item management',
-      'Real-time order tracking system',
-      'Responsive design for all devices',
-      'Modern UI with smooth animations'
-    ]
-  },
-  {
-    id: 5,
-    title: 'The Wild Oasis',
-    tagline: 'Hotel management dashboard with booking and analytics',
-    description: 'A comprehensive hotel management system featuring cabin bookings, guest management, and detailed analytics. Built with React and modern UI components to provide a complete hospitality management solution.',
-    image: '/projects/wildoasis1.png',
-    techIcons: [
-      { name: 'React.js', icon: 'FaReact' },
-      { name: 'JavaScript', icon: 'FaJs' },
-      { name: 'CSS3', icon: 'FaCss3Alt' }
-    ],
-    category: 'Dashboard',
-    slug: 'wild-oasis-hotel',
-    screenshots: ['/projects/wildoasis1.png', '/projects/wildoasis2.png', '/projects/wildoasis3.png', '/projects/wildoasis4.png'],
-    features: [
-      'Comprehensive booking management system',
-      'Guest check-in and check-out functionality',
-      'Revenue and occupancy analytics',
-      'Cabin management and maintenance tracking',
-      'Professional dashboard interface'
-    ]
-  },
-  {
-    id: 6,
-    title: 'WorldWise',
-    tagline: 'Interactive world map for tracking your travel adventures',
-    description: 'A beautiful travel tracking application that allows users to mark cities they\'ve visited on an interactive world map. Features include city information, travel statistics, and a clean interface for managing your global adventures.',
-    image: '/projects/worldwise.png',
-    techIcons: [
-      { name: 'React.js', icon: 'FaReact' },
-      { name: 'JavaScript', icon: 'FaJs' },
-      { name: 'CSS3', icon: 'FaCss3Alt' }
-    ],
-    category: 'Frontend',
-    slug: 'worldwise-travel-tracker',
-    screenshots: ['/projects/worldwise.png', '/projects/worldwise2.png'],
-    features: [
-      'Interactive world map interface',
-      'City marking and information display',
-      'Travel statistics and analytics',
-      'Beautiful and intuitive design',
-      'Responsive map functionality'
     ]
   }
 ];

@@ -1,7 +1,0 @@
-<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="600" fill="#1a1a2e"/>
-  <text x="400" y="300" font-family="Arial" font-size="60" text-anchor="middle" fill="#3b82f6">Agency Site</text>
-  <polygon points="250,400 300,350 350,400 300,450" fill="#10b981"/>
-  <polygon points="450,400 500,350 550,400 500,450" fill="#3b82f6"/>
-  <rect x="200" y="480" width="400" height="30" rx="5" fill="#8b5cf6"/>
-</svg>
