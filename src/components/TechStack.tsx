@@ -11,14 +11,7 @@ import {
   SiMysql, SiVercel, SiPostman, SiStrapi, SiOpenai, SiCurseforge
 } from 'react-icons/si';
 import { useTheme } from './ThemeProvider';
-
-interface TechCategory {
-  name: string;
-  items: {
-    name: string;
-    icon: React.ReactNode;
-  }[];
-}
+import { TechCategory } from '@/types/tech-stack';
 
 export default function TechStack() {
   const [ref, inView] = useInView({
