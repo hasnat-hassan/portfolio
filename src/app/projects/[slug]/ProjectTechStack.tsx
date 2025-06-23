@@ -34,8 +34,13 @@ export default function ProjectTechStack({ techIcons }: ProjectTechStackProps) {
                 tech.name === 'Next.js' ? (theme === 'light' ? 'text-black' : 'text-white') :
                 tech.name === 'Tailwind CSS' ? 'text-[#06B6D4]' :
                 tech.name === 'SASS' ? 'text-[#CC6699]' :
+                tech.name === 'Node.js' ? 'text-[#339933]' :
+                tech.name === 'Express.js' ? 'text-[#000000]' :
                 tech.name === 'Supabase' ? 'text-[#3ECF8E]' :
+                tech.name === 'Prisma' ? (theme === 'light' ? 'text-[#2D3748]' : 'text-white') :
                 tech.name === 'Prisma ORM' ? (theme === 'light' ? 'text-black' : 'text-white') :
+                tech.name === 'PostgreSQL' ? 'text-[#336791]' :
+                tech.name === 'Socket.io' ? 'text-[#010101]' :
                 tech.name === 'MongoDB' ? 'text-[#47A248]' :
                 tech.name === 'MySQL' ? 'text-[#4479A1]' :
                 tech.name === 'Git' ? 'text-[#F05032]' :

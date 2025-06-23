@@ -154,5 +154,74 @@ export const projects: Project[] = [
       'Real-time packing statistics',
       'Clean and intuitive interface'
     ]
+  },
+  {
+    id: 8,
+    title: 'Instagram Clone',
+    tagline: 'Full-Stack Instagram-Like Social Media Platform',
+    description: 'A full-featured, Instagram-inspired social media platform replicating key functionalities like media sharing, stories, reels, messaging, and real-time user interactions. Built with Next.js, Node.js, Express.js, Prisma, PostgreSQL, and Socket.io.',
+    image: '/projects/insta1.png',
+    techIcons: [
+      { name: 'Next.js', icon: 'SiNextdotjs' },
+      { name: 'TypeScript', icon: 'SiTypescript' },
+      { name: 'Tailwind CSS', icon: 'SiTailwindcss' },
+      { name: 'Node.js', icon: 'FaNodeJs' },
+      { name: 'Express.js', icon: 'SiExpress' },
+      { name: 'Prisma', icon: 'SiPrisma' },
+      { name: 'PostgreSQL', icon: 'SiPostgresql' },
+      { name: 'Socket.io', icon: 'SiSocketdotio' }
+    ],
+    category: 'Fullstack',
+    slug: 'instagram-clone',
+    screenshots: [
+      '/projects/insta1.png',
+      '/projects/insta2.png',
+      '/projects/insta3.png',
+      '/projects/insta4.png'
+    ],
+    features: [
+      'User Authentication (JWT-based)',
+      'Optimized Media Uploads (photos & videos)',
+      'Stories & Reels functionality',
+      'Real-time Direct Messaging',
+      'Explore & Search (users, hashtags, locations)',
+      'Live Notifications',
+      'Responsive Design (Mobile-first)',
+      'WebSocket-based Real-time Interactions'
+    ]
+  },
+  {
+    id: 9,
+    title: 'BookIt',
+    tagline: 'Full-Stack Hotel Room Booking Platform',
+    description: 'A production-grade, full-stack hotel room booking application built with modern web technologies. Delivers a complete hotel booking ecosystem — from room discovery and secure payments to robust admin management — making it ideal for real-world deployments.',
+    image: '/projects/bookit.png',
+    techIcons: [
+      { name: 'Next.js', icon: 'SiNextdotjs' },
+      { name: 'TypeScript', icon: 'SiTypescript' },
+      { name: 'Redux Toolkit', icon: 'SiRedux' },
+      { name: 'MongoDB', icon: 'SiMongodb' },
+      { name: 'Node.js', icon: 'FaNodeJs' },
+      { name: 'Stripe', icon: 'SiStripe' },
+      { name: 'Cloudinary', icon: 'SiCloudinary' },
+      { name: 'Mapbox', icon: 'SiMapbox' }
+    ],
+    category: 'Fullstack',
+    slug: 'bookit-hotel-booking',
+    screenshots: ['/projects/bookit.png'],
+    features: [
+      'User registration and login via NextAuth.js with JWT-based session management',
+      'Role-based access control (Admin/User) with secure route protection',
+      'Advanced filtering: search by location, price, date, guest capacity, and amenities',
+      'MapBox integration for geolocation-based room discovery',
+      'Stripe integration for secure checkout sessions with webhook support',
+      'PDF invoice generation with jsPDF for booking confirmations',
+      'Full CRUD operations for rooms, bookings, and users with admin dashboard',
+      'Sales analytics and revenue charts using Chart.js',
+      'Cloudinary-powered media upload and image management',
+      'Real-time room availability using dynamic date selection',
+      'Ratings & reviews from verified users',
+      'Email notifications for password reset and booking confirmations'
+    ]
   }
 ];

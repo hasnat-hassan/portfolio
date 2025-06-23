@@ -15,7 +15,7 @@ export default function Projects() {
     threshold: 0.1,
   });
 
-  const categories = ['All', 'Frontend', 'Dashboard'];
+  const categories = ['All', 'Frontend', 'Dashboard', 'Fullstack'];
   const [activeCategory, setActiveCategory] = useState('All');
 
   const filteredProjects = activeCategory === 'All'
