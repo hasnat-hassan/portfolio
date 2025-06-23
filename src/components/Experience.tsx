@@ -3,16 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaCalendarAlt, FaCode, FaFigma, FaDatabase, FaLock, FaUsers, FaRocket } from 'react-icons/fa';
-
-interface ExperienceItem {
-  title: string;
-  company: string;
-  period: string;
-  responsibilities: {
-    text: string;
-    icon: React.ReactNode;
-  }[];
-}
+import { ExperienceItem } from '@/types/experience';
 
 export default function Experience() {
   const [ref, inView] = useInView({

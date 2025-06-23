@@ -67,7 +67,7 @@ export default function Navbar() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative font-medium hover:text-primary transition-colors text-foreground px-4 py-2 rounded bg-primary/90 hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="relative font-medium hover:text-primary transition-colors text-foreground"
               aria-label="Open Resume PDF in new tab"
             >
               Resume

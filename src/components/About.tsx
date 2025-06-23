@@ -48,10 +48,10 @@ export default function About() {
 
           <motion.div variants={itemVariants} className="mb-10">
             <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-              Hasnat is a passionate frontend developer with hands-on experience building modern websites using React.js, Next.js, Tailwind CSS, and TypeScript. Skilled in Figma-to-code conversion, API integrations, and backend connectivity with Supabase, Prisma, and Drizzle ORM.
+              I am a passionate frontend developer with hands-on experience building modern websites using React.js, Next.js, Tailwind CSS, and TypeScript. Skilled in Figma-to-code conversion, API integrations, and backend connectivity with Supabase, Prisma, and Drizzle ORM.
             </p>
             <p className="text-lg text-foreground/80 leading-relaxed">
-              He also leverages AI tools like Cursor IDE, ChatGPT, Claude AI, and DeepSeek to accelerate development and debugging.
+              I also leverages AI tools like Cursor IDE, ChatGPT, Claude AI, and DeepSeek to accelerate development and debugging.
             </p>
           </motion.div>
 

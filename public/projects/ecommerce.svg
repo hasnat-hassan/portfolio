@@ -1,8 +1,0 @@
-<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="600" fill="#1a1a2e"/>
-  <text x="400" y="300" font-family="Arial" font-size="60" text-anchor="middle" fill="#3b82f6">E-Commerce</text>
-  <circle cx="250" cy="400" r="50" fill="#10b981"/>
-  <circle cx="400" cy="400" r="50" fill="#3b82f6"/>
-  <circle cx="550" cy="400" r="50" fill="#8b5cf6"/>
-  <rect x="200" y="480" width="400" height="30" rx="5" fill="#f59e0b"/>
-</svg>
