@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import * as Fa from 'react-icons/fa';
 import * as Si from 'react-icons/si';
 import { IconType } from 'react-icons';
@@ -17,11 +17,48 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, itemVariants }) => {
   const { theme } = useTheme();
+  
+  // Tilt animation setup
+  const ref = useRef<HTMLDivElement>(null);
+  const rotateX = useSpring(useMotionValue(0), { damping: 20, stiffness: 200, mass: 1.5 });
+  const rotateY = useSpring(useMotionValue(0), { damping: 20, stiffness: 200, mass: 1.5 });
+  const scale = useSpring(1, { damping: 20, stiffness: 200, mass: 1.5 });
+
+  function handleMouse(e: React.MouseEvent<HTMLDivElement>) {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left - rect.width / 2;
+    const offsetY = e.clientY - rect.top - rect.height / 2;
+    const rotationX = (offsetY / (rect.height / 2)) * -20; // 20 degrees amplitude
+    const rotationY = (offsetX / (rect.width / 2)) * 20;
+    rotateX.set(rotationX);
+    rotateY.set(rotationY);
+  }
+
+  function handleMouseEnter() {
+    scale.set(1.05);
+  }
+
+  function handleMouseLeave() {
+    scale.set(1);
+    rotateX.set(0);
+    rotateY.set(0);
+  }
+  
   return (
     <motion.div
+      ref={ref}
       variants={itemVariants}
-      className="bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      className="bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer [perspective:800px]"
+      style={{
+        rotateX,
+        rotateY,
+        scale,
+        transformStyle: 'preserve-3d'
+      }}
+      onMouseMove={handleMouse}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Link href={`/projects/${project.slug}`} passHref>
         <div className="h-48 bg-gray-800 relative overflow-hidden">
