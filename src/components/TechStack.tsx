@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
   FaHtml5, FaCss3Alt, FaJs, FaReact, FaSass, FaGitAlt, FaGithub, FaFigma, FaWordpress,
-  FaRobot, FaBrain
+  FaRobot, FaBrain, FaDatabase
 } from 'react-icons/fa';
 import { 
   SiTypescript, SiNextdotjs, SiTailwindcss, SiSupabase, SiPrisma, SiMongodb, 
@@ -50,7 +50,7 @@ export default function TechStack() {
       items: [
         { name: 'Supabase', icon: <SiSupabase className="text-[#3ECF8E]" /> },
         { name: 'Prisma ORM', icon: <SiPrisma className={theme === 'light' ? 'text-black' : 'text-white'} /> },
-        { name: 'Drizzle ORM', icon: <SiMysql className="text-[#4479A1]" /> }, // Using MySQL icon as placeholder
+        { name: 'Drizzle ORM', icon: <FaDatabase className="text-[#C5F74F]" /> }, // Drizzle brand color
         { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" /> },
         { name: 'MySQL', icon: <SiMysql className="text-[#4479A1]" /> },
       ],

@@ -106,12 +106,57 @@ export default function Projects() {
           <motion.div variants={itemVariants} className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground transition-colors duration-300">Projects</h2>
             <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
-            <p className="text-xl text-black max-w-3xl mx-auto transition-colors duration-300">
-              These are personal projects currently not deployed. Source code is private due to development done across different environments.
-            </p>
-            <p className="text-xl text-foreground/70 max-w-3xl mx-auto transition-colors duration-300">
-              Explore my recent work and personal projects showcasing modern web development
-            </p>
+            
+            {/* Enhanced Quote Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 0.3,
+                type: "spring",
+                stiffness: 100
+              }}
+              className="relative max-w-4xl mx-auto mb-8"
+            >
+              {/* Decorative Quote Background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-2xl blur-xl"></div>
+              
+              {/* Quote Container */}
+              <div className="relative bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 md:p-12 shadow-lg hover:shadow-xl transition-all duration-500 group">
+                {/* Large Decorative Quote Mark */}
+                <div className="absolute -top-4 -left-4 text-6xl md:text-7xl text-primary/20 font-serif select-none">
+                  &quot;
+                </div>
+                <div className="absolute -bottom-4 -right-4 text-6xl md:text-7xl text-primary/20 font-serif select-none rotate-180">
+                  &quot;
+                </div>
+                
+                {/* Quote Text with Enhanced Typography */}
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.6 }}
+                  className="text-xl md:text-2xl font-medium italic text-foreground leading-relaxed tracking-wide relative z-10 group-hover:text-primary transition-colors duration-300"
+                >
+                  These are personal projects currently not deployed. Source code is private due to development done across different environments.
+                </motion.p>
+                
+                {/* Subtle Quote Attribution Line */}
+                <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 opacity-60"></div>
+              </div>
+            </motion.div>
+
+            {/* Enhanced Description */}
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="text-xl text-foreground/70 max-w-3xl mx-auto transition-colors duration-300 font-light leading-relaxed"
+            >
+              Explore my recent work and personal projects showcasing 
+              <span className="font-medium text-primary"> modern web development</span>
+            </motion.p>
 
           </motion.div>
 
