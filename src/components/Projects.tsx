@@ -6,10 +6,10 @@ import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 import ProjectCard from './ProjectCard';
 import { projects } from '../data/projectsData';
-import { useTheme } from './ThemeProvider';
+import { useThemeSafe } from './ThemeProvider';
 
 export default function Projects() {
-  useTheme(); // Ensures component re-renders on theme changes
+  useThemeSafe(); // Ensures component re-renders on theme changes
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,

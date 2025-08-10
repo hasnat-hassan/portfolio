@@ -10,7 +10,7 @@ import {
   SiTypescript, SiNextdotjs, SiTailwindcss, SiSupabase, SiPrisma, SiMongodb, 
   SiMysql, SiVercel, SiPostman, SiStrapi, SiOpenai, SiCurseforge
 } from 'react-icons/si';
-import { useTheme } from './ThemeProvider';
+import { useThemeSafe } from './ThemeProvider';
 import { TechCategory } from '@/types/tech-stack';
 
 export default function TechStack() {
@@ -19,7 +19,7 @@ export default function TechStack() {
     threshold: 0.1,
   });
 
-  const { theme } = useTheme();
+  const { theme } = useThemeSafe();
 
   const techCategories: TechCategory[] = [
     {

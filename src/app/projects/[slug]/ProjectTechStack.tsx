@@ -6,14 +6,14 @@ import * as Si from 'react-icons/si';
 import { IconType } from 'react-icons';
 
 import { TechIcon } from '@/types/project';
-import { useTheme } from '@/components/ThemeProvider';
+import { useThemeSafe } from '@/components/ThemeProvider';
 
 interface ProjectTechStackProps {
   techIcons: TechIcon[];
 }
 
 export default function ProjectTechStack({ techIcons }: ProjectTechStackProps) {
-  const { theme } = useTheme();
+  const { theme } = useThemeSafe();
 
   return (
     <div className="flex flex-wrap gap-4">

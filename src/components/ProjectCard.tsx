@@ -7,7 +7,7 @@ import * as Si from 'react-icons/si';
 import { IconType } from 'react-icons';
 
 import { Project, TechIcon } from '@/types/project';
-import { useTheme } from './ThemeProvider';
+import { useThemeSafe } from './ThemeProvider';
 
 interface ProjectCardProps {
   project: Project;
@@ -16,7 +16,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, itemVariants }) => {
-  const { theme } = useTheme();
+  const { theme } = useThemeSafe();
   
   // Tilt animation setup
   const ref = useRef<HTMLDivElement>(null);

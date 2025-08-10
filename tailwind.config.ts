@@ -17,6 +17,17 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['var(--font-heading)', 'Poppins', 'sans-serif'],
+        body: ['var(--font-body)', 'Jost', 'sans-serif'],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '80': '20rem',
+        '96': '24rem',
+        '110': '27.5rem',
+        '128': '32rem',
+      },
       colors: {
         border: "var(--border)",
         input: "var(--input)",
