@@ -1,11 +1,11 @@
 'use client';
 
-import { useTheme } from './ThemeProvider';
+import { useThemeSafe } from './ThemeProvider';
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon } from 'react-icons/fi';
 
 export default function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useThemeSafe();
 
   return (
     <motion.button

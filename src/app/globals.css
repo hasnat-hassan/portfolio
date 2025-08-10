@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Jost:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -32,8 +31,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Jost', sans-serif;
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
 }
 
 body {

@@ -7,6 +7,7 @@ type Theme = 'dark' | 'light';
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
+  isLoaded: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -19,14 +20,32 @@ export function useTheme() {
   return context;
 }
 
+// Safe version that provides fallback values during SSR/hydration
+export function useThemeSafe() {
+  const context = useContext(ThemeContext);
+  
+  // Provide safe defaults during SSR or when context is not ready
+  if (context === undefined || !context.isLoaded) {
+    return {
+      theme: 'dark' as Theme,
+      toggleTheme: () => {},
+      isLoaded: false,
+    };
+  }
+  
+  return context;
+}
+
 export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark');
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Get theme from localStorage or use default
-    const savedTheme = localStorage.getItem('theme') as Theme || 'dark';
+    const savedTheme = (localStorage.getItem('theme') as Theme) || 'dark';
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
+    setIsLoaded(true);
   }, []);
 
   const toggleTheme = () => {
@@ -36,8 +55,9 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
     document.documentElement.setAttribute('data-theme', newTheme);
   };
 
+  // Always provide the context - the inline script in layout.tsx handles FOUC prevention
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isLoaded }}>
       {children}
     </ThemeContext.Provider>
   );

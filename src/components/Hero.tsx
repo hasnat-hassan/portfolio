@@ -91,13 +91,15 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="lg:w-1/2 flex justify-center lg:justify-end"
           >
-            <div className="relative w-95 h-95 md:w-110 md:h-110 flex items-center justify-center bg-transparent">
+            <div className="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center bg-transparent">
               <Image
                 src="/Logo4.png"
-                alt="Hasnat Hassan"
-                layout="fill"
-                objectFit="contain"
+                alt="Hasnat Hassan - Frontend Web Developer"
+                fill
+                style={{ objectFit: 'contain' }}
+                sizes="(max-width: 768px) 320px, 384px"
                 priority
+                quality={85}
               />
             </div>
           </motion.div>
